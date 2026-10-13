@@ -33,3 +33,8 @@ if(sz){function sel(btn){sz.querySelectorAll('button').forEach(function(x){x.set
 (function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 document.querySelectorAll('#facts,#ranges,#finder,#shop,#guide,#reviews').forEach(function(s){s.classList.add('sx-reveal');
  var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){s.classList.add('in');io.disconnect();}},{threshold:.12});io.observe(s);});})();
+/* v4.1: tail swoosh under section titles (draws in when the section is revealed) */
+(function(){var sw='<svg class="sx-swoosh" viewBox="0 0 120 18" aria-hidden="true"><path pathLength="1" d="M4 6C30 14 62 14 92 8S112 2 116 4"/><circle cx="116" cy="10" r="3.2"/></svg>';
+document.querySelectorAll('#facts h2,#ranges h2,#guide h2,#reviews h2,.sx-plist h1,.sx-guide-page h1').forEach(function(h){h.insertAdjacentHTML('afterend',sw);});
+if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-reveal'))return;var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){s.classList.add('in');io.disconnect();}});io.observe(s);});})();
