@@ -1,0 +1,1 @@
+(function(){var v=document.getElementById('videoPlayer'),b=document.getElementById('muteButton');if(v&&b){b.addEventListener('click',function(){v.muted=!v.muted;b.classList.toggle('mute',!v.muted);b.classList.toggle('unmute',v.muted);});}})();
