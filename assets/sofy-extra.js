@@ -38,3 +38,26 @@ document.querySelectorAll('#facts,#ranges,#finder,#shop,#guide,#reviews').forEac
 document.querySelectorAll('#facts h2,#ranges h2,#guide h2,#reviews h2,.sx-plist h1,.sx-guide-page h1').forEach(function(h){h.insertAdjacentHTML('afterend',sw);});
 if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
 document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-reveal'))return;var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){s.classList.add('in');io.disconnect();}});io.observe(s);});})();
+
+/* v5: hero video slot + FLIP bird intro + range colourways */
+(function(){
+ var v=document.querySelector('.sx-atf-v');
+ if(v){var src=matchMedia('(min-width:768px)').matches?v.dataset.srcDesktop:v.dataset.srcMobile;if(src){v.src=src;v.play&&v.play().catch(function(){})}}
+ document.querySelectorAll('.sx-rg-tabs [data-bf]').forEach(function(b){b.addEventListener('click',function(){var r=document.documentElement.style;r.setProperty('--bf',b.dataset.bf);r.setProperty('--bb',b.dataset.bb)})});
+ var hb=document.querySelector('.sx-hb'),atf=document.querySelector('.sx-atf');
+ if(!hb||!atf||!hb.animate)return;
+ if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ try{if(sessionStorage.getItem('sxIntro'))return;sessionStorage.setItem('sxIntro','1')}catch(e){}
+ var s=hb.getBoundingClientRect(),a=atf.getBoundingClientRect();
+ var bw=Math.min(a.width*.62,a.height*.5,420),k=bw/s.width,bh=s.height*k;
+ var tx=a.left+a.width/2-bw/2-s.left,ty=a.top+a.height*.42-bh/2-s.top;
+ var big='translate('+tx+'px,'+ty+'px) scale('+k+')';
+ hb.classList.add('is-intro');
+ var an=hb.animate([
+  {transform:'translate('+tx+'px,'+(ty+30)+'px) scale('+k*.92+')',opacity:0},
+  {transform:big,opacity:1,offset:.18},
+  {transform:'translate('+tx+'px,'+(ty-14)+'px) scale('+k+')',opacity:1,offset:.5,easing:'cubic-bezier(.65,0,.25,1)'},
+  {transform:'none',opacity:1}],{duration:2700,easing:'cubic-bezier(.33,1,.68,1)',fill:'backwards'});
+ setTimeout(function(){hb.classList.add('is-beat')},350);
+ an.onfinish=function(){hb.classList.remove('is-intro','is-beat')};
+})();
