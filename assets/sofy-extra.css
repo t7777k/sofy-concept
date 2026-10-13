@@ -262,8 +262,8 @@ h2,.mt-section_title,.sx-shop-title{color:var(--sx-ink);font-weight:600}
 .sx-bird{position:absolute;pointer-events:none;z-index:2;will-change:transform,opacity}
 .sx-bird-hero{width:72px;height:auto;top:8%;inset-inline-start:-90px;opacity:0;animation:sxglide 7s cubic-bezier(.45,.05,.3,1) .6s 1 forwards}
 [dir=rtl] .sx-bird-hero{animation-name:sxglide-rtl}
-@keyframes sxglide{0%{opacity:0;transform:translate(0,40px) rotate(-8deg) scaleY(1)}12%{opacity:.95}30%{transform:translate(30vw,-6px) rotate(-2deg) scaleY(.9)}38%{transform:translate(38vw,0) rotate(-4deg) scaleY(1)}62%{transform:translate(62vw,-14px) rotate(0) scaleY(.92)}70%{transform:translate(70vw,-10px) rotate(-3deg) scaleY(1)}100%{opacity:.9;transform:translate(calc(100vw - 60px),-24px) rotate(2deg) scaleY(1)}}
-@keyframes sxglide-rtl{0%{opacity:0;transform:translate(0,40px) rotate(8deg) scaleX(-1)}12%{opacity:.95}30%{transform:translate(-38vw,-6px) rotate(2deg) scale(-1,.9)}38%{transform:translate(-46vw,0) rotate(4deg) scaleX(-1)}62%{transform:translate(-70vw,-14px) rotate(0) scale(-1,.92)}70%{transform:translate(-78vw,-10px) rotate(3deg) scaleX(-1)}100%{opacity:.9;transform:translate(calc(-100vw + 6px),-24px) rotate(-2deg) scaleX(-1)}}
+@keyframes sxglide{0%{opacity:0;transform:translate(0,40px) rotate(-8deg)}12%{opacity:.95}30%{transform:translate(30vw,-6px) rotate(-2deg)}38%{transform:translate(38vw,0) rotate(-4deg)}62%{transform:translate(62vw,-14px) rotate(0)}70%{transform:translate(70vw,-10px) rotate(-3deg)}100%{opacity:.9;transform:translate(calc(100vw - 60px),-24px) rotate(2deg)}}
+@keyframes sxglide-rtl{0%{opacity:0;transform:translate(0,40px) rotate(8deg) scaleX(-1)}12%{opacity:.95}30%{transform:translate(-38vw,-6px) rotate(2deg) scaleX(-1)}38%{transform:translate(-46vw,0) rotate(4deg) scaleX(-1)}62%{transform:translate(-70vw,-14px) rotate(0) scaleX(-1)}70%{transform:translate(-78vw,-10px) rotate(3deg) scaleX(-1)}100%{opacity:.9;transform:translate(calc(-100vw + 6px),-24px) rotate(-2deg) scaleX(-1)}}
 .sx-bird-acc{width:30px;top:2.6rem;inset-inline-end:8%;opacity:0;transform:translateY(10px)}
 .sx-bird-acc.in{animation:sxacc 1.6s ease-out forwards}
 [dir=rtl] .sx-bird-acc{scale:-1 1}
@@ -272,3 +272,15 @@ h2,.mt-section_title,.sx-shop-title{color:var(--sx-ink);font-weight:600}
 @media (max-width:767px){.sx-bird-hero{width:44px;top:6rem}.sx-bird-acc{width:24px;top:1.6rem}}
 @media (prefers-reduced-motion:reduce){.sx-bird-hero{animation:none;opacity:.9;inset-inline-start:auto;inset-inline-end:4%;transform:none}[dir=rtl] .sx-bird-hero{transform:scaleX(-1)}.sx-bird-acc,.sx-bird-acc.in{animation:none;opacity:.55;transform:none}.sx-rg-panel{animation:none}}
 @media (min-width:768px){.sx-rg-panel .sx-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;max-width:760px;margin:0 auto 2.4rem}}
+
+/* v3.1 SVG bird: wings are separate groups so they flap */
+svg.sx-bird{height:auto;overflow:visible}
+.sx-bird .sb-wing,.sx-bird .sb-wing-near{transform-box:view-box;transform-origin:470px 600px}
+.sx-bird .sb-wing-far{transform-box:view-box;transform-origin:120px 760px}
+.sx-bird-hero .sb-wing,.sx-bird-hero .sb-wing-near{animation:sbflap 1.15s ease-in-out .6s 6}
+.sx-bird-hero .sb-wing-far{animation:sbflapfar 1.15s ease-in-out .6s 6}
+.sx-bird-acc.in .sb-wing,.sx-bird-acc.in .sb-wing-near{animation:sbflap 1.15s ease-in-out .2s 2}
+.sx-bird-acc.in .sb-wing-far{animation:sbflapfar 1.15s ease-in-out .2s 2}
+@keyframes sbflap{0%,100%{transform:none}45%{transform:rotate(9deg) scale(.96,.9)}}
+@keyframes sbflapfar{0%,100%{transform:none}45%{transform:rotate(6deg) scaleY(.92)}}
+@media (prefers-reduced-motion:reduce){.sx-bird .sb-wing,.sx-bird .sb-wing-near,.sx-bird .sb-wing-far{animation:none!important}}
