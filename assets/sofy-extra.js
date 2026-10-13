@@ -19,7 +19,7 @@ if(sg){var data=JSON.parse(sg.getAttribute('data-finder'));
 // review tabs
 document.querySelectorAll('.sx-rv-tabs').forEach(function(tl){tl.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){
  tl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-selected',x===btn?'true':'false');});
- var sec=tl.parentNode;sec.querySelectorAll('.sx-rv-panel').forEach(function(p){p.hidden=p.getAttribute('data-p')!==btn.getAttribute('data-t');});});});});
+ var sec=tl.parentNode;sec.querySelectorAll('.sx-rv-panel,.sx-rg-panel').forEach(function(p){p.hidden=p.getAttribute('data-p')!==btn.getAttribute('data-t');});});});});
 // product pack switcher (+ ?pack=ASIN)
 var sz=document.querySelector('.sx-sizes');
 if(sz){function sel(btn){sz.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===btn?'true':'false');});
@@ -29,3 +29,8 @@ if(sz){function sel(btn){sz.querySelectorAll('button').forEach(function(x){x.set
  sz.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){sel(btn);});});
  var q=new URLSearchParams(location.search).get('pack');if(q){var t=sz.querySelector('[data-asin="'+q+'"]');if(t)sel(t);}}
 })();
+/* v3: subtle pack-bird accents on section entry (once), skipped for reduced motion */
+(function(){var h=document.querySelector('.sx-bird-hero');if(!h)return;var src=h.getAttribute('src');
+document.querySelectorAll('#ranges,#guide').forEach(function(s){var b=document.createElement('img');b.className='sx-bird sx-bird-acc';b.src=src;b.alt='';b.setAttribute('aria-hidden','true');b.loading='lazy';s.appendChild(b);
+ if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){b.classList.add('in');return;}
+ var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){b.classList.add('in');io.disconnect();}},{threshold:.25});io.observe(s);});})();
