@@ -29,8 +29,7 @@ if(sz){function sel(btn){sz.querySelectorAll('button').forEach(function(x){x.set
  sz.querySelectorAll('button').forEach(function(btn){btn.addEventListener('click',function(){sel(btn);});});
  var q=new URLSearchParams(location.search).get('pack');if(q){var t=sz.querySelector('[data-asin="'+q+'"]');if(t)sel(t);}}
 })();
-/* v3.1: SVG pack-bird accents on section entry (once), skipped for reduced motion */
-(function(){var h=document.querySelector('.sx-bird-hero');if(!h)return;
-document.querySelectorAll('#ranges,#guide').forEach(function(s){var b=h.cloneNode(true);b.setAttribute('class','sx-bird sx-bird-acc');s.appendChild(b);
- if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){b.classList.add('in');return;}
- var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){b.classList.add('in');io.disconnect();}},{threshold:.25});io.observe(s);});})();
+/* v4: sections fade up once on scroll (no bird motion outside the hero) */
+(function(){if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+document.querySelectorAll('#facts,#ranges,#finder,#shop,#guide,#reviews').forEach(function(s){s.classList.add('sx-reveal');
+ var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){s.classList.add('in');io.disconnect();}},{threshold:.12});io.observe(s);});})();
