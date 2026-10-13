@@ -423,5 +423,5 @@ section h2,.sx-shop-title,.mt-section_title{text-transform:none!important}
 .sx-faq-h{margin-top:var(--s8)!important;margin-bottom:var(--s3)!important}
 .mt-btn{white-space:normal;text-align:center}
 /* crisp outline at any rendered size: screen-px stroke (thin at rest, pack ratio when big) */
-.sx-bird-mark [stroke]{vector-effect:non-scaling-stroke;stroke-width:1.25px;transition:stroke-width .9s ease}
+.sx-bird-mark [stroke]{vector-effect:non-scaling-stroke;stroke-width:1.5px;transition:stroke-width .9s ease}
 .sx-hb.is-intro .sx-bird-mark [stroke]{stroke-width:4px}
