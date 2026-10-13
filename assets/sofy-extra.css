@@ -262,7 +262,7 @@ h2,.mt-section_title,.sx-shop-title{color:var(--sx-ink);font-weight:600}
 .sx-bird{position:absolute;pointer-events:none;z-index:2;will-change:transform,opacity}
 .sx-bird-hero{width:72px;height:auto;top:8%;inset-inline-start:-90px;opacity:0;animation:sxglide 7s cubic-bezier(.45,.05,.3,1) .6s 1 forwards}
 [dir=rtl] .sx-bird-hero{animation-name:sxglide-rtl}
-@keyframes sxglide{0%{opacity:0;transform:translate(0,40px) rotate(-8deg)}12%{opacity:.95}30%{transform:translate(30vw,-6px) rotate(-2deg)}38%{transform:translate(38vw,0) rotate(-4deg)}62%{transform:translate(62vw,-14px) rotate(0)}70%{transform:translate(70vw,-10px) rotate(-3deg)}100%{opacity:.9;transform:translate(calc(100vw - 60px),-24px) rotate(2deg)}}
+@keyframes sxglide{0%{opacity:0;transform:translate(0,40px) rotate(-8deg)}12%{opacity:.95}30%{transform:translate(30vw,-6px) rotate(-2deg)}38%{transform:translate(38vw,0) rotate(-4deg)}62%{transform:translate(62vw,-14px) rotate(0)}70%{transform:translate(70vw,-10px) rotate(-3deg)}100%{opacity:.9;transform:translate(calc(100vw + 10px),-24px) rotate(2deg)}}
 @keyframes sxglide-rtl{0%{opacity:0;transform:translate(0,40px) rotate(8deg) scaleX(-1)}12%{opacity:.95}30%{transform:translate(-38vw,-6px) rotate(2deg) scaleX(-1)}38%{transform:translate(-46vw,0) rotate(4deg) scaleX(-1)}62%{transform:translate(-70vw,-14px) rotate(0) scaleX(-1)}70%{transform:translate(-78vw,-10px) rotate(3deg) scaleX(-1)}100%{opacity:.9;transform:translate(calc(-100vw + 6px),-24px) rotate(-2deg) scaleX(-1)}}
 .sx-bird-acc{width:30px;top:2.6rem;inset-inline-end:8%;opacity:0;transform:translateY(10px)}
 .sx-bird-acc.in{animation:sxacc 1.6s ease-out forwards}
