@@ -330,9 +330,6 @@ h2,.mt-section_title,.sx-shop-title{color:var(--sx-ink);font-weight:600}
 
 /* ===== v5: ATF video hero + FLIP bird intro + uplifting idle ===== */
 .mt-logo{position:relative;display:flex;align-items:center;gap:.4rem}
-.sx-hb{display:inline-block;width:30px;flex:0 0 30px;transform-origin:0 0;will-change:transform;position:relative;z-index:60}
-@media (min-width:768px){.sx-hb{width:42px;flex-basis:42px}}
-.sx-hb .sx-bird-mark{display:block;width:100%;height:auto;overflow:visible}
 .sx-bird-mark .sb-fw,.sx-bird-mark .sb-bw,.sx-bird-mark .sb-tl,.sx-bird-mark{transform-box:fill-box}
 .sx-bird-mark{animation:sblift 4.2s cubic-bezier(.3,1.4,.5,1) infinite}
 .sx-bird-mark .sb-fw{transform-origin:92% 96%;animation:sbbeat 4.2s cubic-bezier(.3,1.5,.5,1) infinite}
@@ -344,17 +341,87 @@ h2,.mt-section_title,.sx-shop-title{color:var(--sx-ink);font-weight:600}
 @keyframes sbtail{0%,40%,100%{transform:none}14%{transform:rotate(-5deg)}}
 .sx-hb.is-intro .sx-bird-mark,.sx-hb.is-intro .sx-bird-mark *{animation-play-state:paused}
 .sx-hb.is-intro.is-beat .sx-bird-mark,.sx-hb.is-intro.is-beat .sx-bird-mark *{animation-play-state:running}
-.sx-atf{position:relative;overflow:hidden;min-height:78svh;display:flex;align-items:flex-end;justify-content:center;color:#fff;
- background:#2a1a5c url(up/hero-poster-3x4.jpg) center/cover no-repeat}
-@media (min-width:768px){.sx-atf{min-height:0;aspect-ratio:16/9;max-height:88vh;background-image:url(up/hero-poster-16x9.jpg)}}
-.sx-atf-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.sx-atf-v:not([src]){display:none}
-.sx-atf::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,95,.15) 0%,rgba(20,23,95,0) 35%,rgba(20,23,95,.55) 100%);pointer-events:none}
-.sx-atf-c{position:relative;z-index:2;text-align:center;padding:0 1.25rem 4.5rem;display:flex;flex-direction:column;align-items:center;gap:.6rem}
-.sx-atf-logo{width:132px;height:auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.25))}
-.sx-atf-h{font-size:1.15rem;line-height:1.4;font-weight:700;margin:0;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.sx-atf-cta{font-size:.9rem;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.7);border-radius:999px;padding:.45rem 1.1rem;backdrop-filter:blur(4px)}
+.sx-atf{position:relative;background:var(--sx-ink,#14175F);color:#fff;overflow:hidden}
+.sx-atf-media{position:relative;aspect-ratio:3/4;background:#14175F url(video/sofy-hero-poster-mobile.jpg) center/cover no-repeat}
+.sx-atf-v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sx-atf-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,23,95,.55) 0,rgba(20,23,95,0) 32%);pointer-events:none}
+.sx-atf-c{position:absolute;top:0;inset-inline:0;z-index:2;display:flex;flex-direction:column;align-items:center;padding:24px 16px 0}
+.sx-atf-logo{width:120px;height:auto}
+.sx-atf-txt{position:relative;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.sx-atf-h{font-size:20px;line-height:28px;font-weight:700;margin:0;color:#fff}
+.sx-atf-cta{display:inline-flex;align-items:center;min-height:44px;font-size:15px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.8);border-radius:999px;padding:0 24px}
 .sx-atf-cta:hover{background:#fff;color:var(--primary-color)}
+@media (max-width:767px){.sx-atf{padding-bottom:64px}.sx-atf-c{position:static;padding:0}.sx-atf-logo{position:absolute;top:24px;left:50%;transform:translateX(-50%)}.sx-atf-txt{padding:24px 16px 0}}
+@media (min-width:768px){.sx-atf-media{aspect-ratio:2048/858;max-height:calc(100vh - 80px);width:100%;background-image:url(video/sofy-hero-poster.jpg)}
+ .sx-atf-media::after{background:linear-gradient(90deg,rgba(20,23,95,.75) 0,rgba(20,23,95,.35) 38%,rgba(20,23,95,0) 60%)}
+ [dir=rtl] .sx-atf-media::after{background:linear-gradient(270deg,rgba(20,23,95,.75) 0,rgba(20,23,95,.35) 38%,rgba(20,23,95,0) 60%)}
+ .sx-atf-c{bottom:0;align-items:flex-start;justify-content:center;padding:0 64px;width:44%;gap:24px}
+ .sx-atf-txt{align-items:flex-start;text-align:start}.sx-atf-logo{width:176px}.sx-atf-h{font-size:32px;line-height:40px}}
 .sx-atf .sx-wingdiv{position:absolute;bottom:-1px;left:0;z-index:3}
-@media (min-width:768px){.sx-atf-logo{width:190px}.sx-atf-h{font-size:1.6rem}.sx-atf-c{padding-bottom:7rem}}
+.sx-hb{display:inline-block;position:relative;width:32px;flex:0 0 32px;aspect-ratio:1210/1420;z-index:60}
+@media (min-width:768px){.sx-hb{width:40px;flex-basis:40px}}
+.sx-hb .sx-bird-mark{position:absolute;left:0;top:0;display:block;width:100%;height:auto;overflow:visible}
 @media (prefers-reduced-motion:reduce){.sx-bird-mark,.sx-bird-mark *{animation:none!important}}
+
+/* ===== v5 QA: strict 8px spacing + type scale tokens (applied site-wide) ===== */
+:root{--s1:8px;--s2:16px;--s3:24px;--s4:32px;--s5:40px;--s6:48px;--s8:64px;--s12:96px;--gut:16px;--sec:64px;--head-gap:32px}
+@media (min-width:768px){:root{--gut:24px;--sec:96px;--head-gap:48px}}
+.container-xl,.container{padding-inline:var(--gut)!important}
+section.mt-section{padding-top:var(--sec)!important;padding-bottom:var(--sec)!important;margin:0!important}
+.sx-finder.mt-section{padding-top:var(--sec)!important;padding-bottom:var(--sec)!important}
+/* type scale: 13/16 eyebrow · 16/24 body · 22/30 h3 · 28/36 h2 · 32/40 h1 (mobile) → 28/36 h3 · 40/48 h2 · 48/56 h1 (desktop) */
+.sx-eyebrow{font-size:13px!important;line-height:16px!important;margin:0 0 var(--s1)!important;letter-spacing:.06em}
+section h2,.mt-section_title,.sx-shop-title,.sx-fhead h2{font-size:28px!important;line-height:36px!important;margin:0 0 var(--s2)!important}
+.sx-page-h1,.sx-pdp h1,main h1:not(.sx-atf-h){font-size:32px!important;line-height:40px!important;margin:0 0 var(--s2)!important}
+.sx-band-title,section h3{font-size:20px!important;line-height:28px!important}
+.sx-rg-tag,.sx-lead,.sx-fhead p,section p{font-size:16px;line-height:24px}
+@media (min-width:768px){section h2,.mt-section_title,.sx-shop-title,.sx-fhead h2{font-size:40px!important;line-height:48px!important}
+ .sx-page-h1,.sx-pdp h1,main h1:not(.sx-atf-h){font-size:48px!important;line-height:56px!important}
+ .sx-band-title{font-size:28px!important;line-height:36px!important}}
+/* heading block → content gap */
+.sx-fhead,.sx-rg-tabs,.sx-rv-tabs,.sx-guide header,.sx-shop-title{margin-bottom:var(--head-gap)!important}
+/* cards: one padding, one radius, equal heights */
+.sx-fact,.sx-myth,.sx-rev,.sx-pcard,.sx-res,.sx-faq details{padding:var(--s2)!important;border-radius:16px!important}
+@media (min-width:768px){.sx-fact,.sx-myth,.sx-rev,.sx-pcard,.sx-res,.sx-faq details{padding:var(--s3)!important}}
+.sx-fsteps,.sx-myths,.sx-pgrid,.sx-shop-tiles,.sx-rev-grid{gap:var(--s2)!important;align-items:stretch!important}
+@media (min-width:768px){.sx-fsteps,.sx-myths,.sx-pgrid,.sx-shop-tiles{gap:var(--s3)!important}}
+.sx-fact,.sx-pcard,.sx-myth{height:100%}
+/* icons: one size per context */
+.sx-fic{width:56px!important;height:56px!important}.sx-fic img{width:32px!important;height:32px!important}
+.sx-ic{width:64px!important;height:64px!important}
+@media (min-width:768px){.sx-fic{width:72px!important;height:72px!important}.sx-fic img{width:40px!important;height:40px!important}.sx-ic{width:72px!important;height:72px!important}}
+/* buttons & touch targets */
+.mt-btn{min-height:48px!important;padding:0 var(--s3)!important;display:inline-flex!important;align-items:center;justify-content:center;font-size:15px!important;line-height:20px!important}
+.sx-rv-tabs button,.sx-rg-tabs button,.sx-seg button{min-height:40px!important;padding:0 var(--s2)!important}
+.sx-cta{margin-top:var(--s4)!important}
+/* packs: same box everywhere, centred, contain */
+.sx-pack{display:flex!important;align-items:center;justify-content:center;margin-inline:auto}
+.sx-pack img{width:100%!important;height:100%!important;object-fit:contain!important;aspect-ratio:1/1}
+.sx-rg-panel .sx-pack{width:min(100%,320px)!important;aspect-ratio:1/1}
+.sx-pcard .sx-pack,.sx-pcard img{width:100%;aspect-ratio:1/1;object-fit:contain}
+.sx-res img{width:160px!important;height:160px!important;object-fit:contain}
+@media (min-width:768px){.sx-rg-panel .sx-pack{width:400px!important}}
+/* header bird ≈ 80% of logo height */
+.mt-logo img{height:48px!important;width:auto!important}
+.sx-hb{width:34px!important;flex-basis:34px!important}
+@media (min-width:768px){.mt-logo img{height:64px!important}.sx-hb{width:44px!important;flex-basis:44px!important}}
+@media (max-width:767px){.sx-fsteps{grid-template-columns:1fr!important;display:grid!important}
+ .sx-fact{display:grid!important;grid-template-columns:56px 1fr;column-gap:var(--s2);align-items:center;text-align:start!important}
+ .sx-fact .sx-fic{grid-row:1/span 3;margin:0!important}.sx-fact .sx-fnum{display:none}}
+.sx-fact h3{font-size:16px!important;line-height:24px!important;margin:0!important}
+@media (min-width:768px){.sx-fact h3{font-size:20px!important;line-height:28px!important;margin-top:var(--s2)!important}}
+.sx-seg button{font-size:13px!important;line-height:16px!important}
+.sx-res,.sx-res *{background-color:#fff}
+.sx-pcard img,.sx-pcard .sx-pack img{width:100%!important;max-width:280px!important;height:auto!important;max-height:none!important;aspect-ratio:1/1;object-fit:contain!important;margin-inline:auto;display:block}
+.sx-pack-lg,.sx-pack-lg img{width:min(100%,320px)!important;height:auto!important;aspect-ratio:1/1;object-fit:contain!important;margin-inline:auto}
+@media (min-width:768px){.sx-pack-lg,.sx-pack-lg img{width:min(100%,440px)!important}}
+.sx-pcard h2,.sx-pdp h2,.sx-pdp-txt h2,.sx-myth h2,.sx-rev h2{font-size:20px!important;line-height:28px!important;margin:var(--s2) 0 var(--s1)!important}
+@media (min-width:768px){.sx-pcard h2,.sx-pdp h2,.sx-pdp-txt h2{font-size:24px!important;line-height:32px!important}}
+.sx-fhead p{text-align:start!important}
+section h2,.sx-shop-title,.mt-section_title{text-transform:none!important}
+@media (max-width:767px){.sx-rg-tabs{display:grid!important;grid-template-columns:1fr 1fr;gap:var(--s1)!important}.sx-rg-tabs button{width:100%;margin:0!important}}
+.sx-faq-h{margin-top:var(--s8)!important;margin-bottom:var(--s3)!important}
+.mt-btn{white-space:normal;text-align:center}
+/* crisp outline at any rendered size: screen-px stroke (thin at rest, pack ratio when big) */
+.sx-bird-mark [stroke]{vector-effect:non-scaling-stroke;stroke-width:1.25px;transition:stroke-width .9s ease}
+.sx-hb.is-intro .sx-bird-mark [stroke]{stroke-width:4px}
