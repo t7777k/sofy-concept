@@ -425,3 +425,12 @@ section h2,.sx-shop-title,.mt-section_title{text-transform:none!important}
 /* crisp outline at any rendered size: screen-px stroke (thin at rest, pack ratio when big) */
 .sx-bird-mark [stroke]{vector-effect:non-scaling-stroke;stroke-width:1.5px;transition:stroke-width .9s ease}
 .sx-hb.is-intro .sx-bird-mark [stroke]{stroke-width:4px}
+/* v5.2 mobile header: burger · logo+bird · EN only; socials live in menu + footer */
+@media (max-width:767px){.sx-header .mt-social li:not(.lang-item){display:none!important}
+ .sx-header .mt-social{gap:0!important;margin:0 var(--s2) 0 0!important}
+ .sx-header .row{flex-wrap:nowrap}.sx-header .col-4{flex:1 1 auto;width:auto}.sx-header .col-8{flex:0 0 auto;width:auto;gap:var(--s1)}
+ .sx-header .container-xl>.row{min-height:64px}}
+.sx-mm-social{margin-top:var(--s4);padding-top:var(--s3);border-top:1px solid rgba(20,23,95,.12)}
+.sx-mm-social .mt-social,.sx-foot-social .mt-social{display:flex!important;flex-wrap:nowrap;gap:var(--s1);list-style:none;padding:0;margin:0;justify-content:center}
+.sx-mm-social .mt-social a,.sx-foot-social .mt-social a{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center}
+.sx-foot-social{margin:var(--s3) 0}
