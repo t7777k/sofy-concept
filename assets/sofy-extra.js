@@ -60,3 +60,8 @@ document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-re
  setTimeout(function(){hb.classList.add('is-beat')},350);setTimeout(function(){hb.classList.remove('is-intro')},1500);
  an.onfinish=function(){hb.classList.remove('is-intro','is-beat')};
 })();
+
+/* v6: header bird takes the colourway of the range band in view */
+(function(){var bs=document.querySelectorAll('.sx-rband[data-bf]');if(!bs.length||!('IntersectionObserver' in window))return;var r=document.documentElement.style;
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){r.setProperty('--bf',e.target.dataset.bf);r.setProperty('--bb',e.target.dataset.bb)}})},{rootMargin:'-45% 0px -45% 0px'});bs.forEach(function(b){io.observe(b)});
+ var rs=document.getElementById('ranges');if(rs)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.boundingClientRect.top>0){r.removeProperty('--bf');r.removeProperty('--bb')}})}).observe(rs)})();
