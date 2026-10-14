@@ -65,3 +65,13 @@ document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-re
 (function(){var bs=document.querySelectorAll('.sx-rband[data-bf]');if(!bs.length||!('IntersectionObserver' in window))return;var r=document.documentElement.style;
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){r.setProperty('--bf',e.target.dataset.bf);r.setProperty('--bb',e.target.dataset.bb)}})},{rootMargin:'-45% 0px -45% 0px'});bs.forEach(function(b){io.observe(b)});
  var rs=document.getElementById('ranges');if(rs)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&e.boundingClientRect.top>0){r.removeProperty('--bf');r.removeProperty('--bb')}})}).observe(rs)})();
+
+/* v7: products page filters (Pads | Pantyliners, then sub-brand) */
+(function(){var tabs=document.querySelectorAll('.sx-ptabs [data-g]');if(!tabs.length)return;var subs=document.querySelectorAll('.sx-psubs [data-s]'),cards=document.querySelectorAll('.sx-pcard[data-g]');
+ function apply(g,s){tabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.g===g)});subs.forEach(function(b){b.hidden=!(g==='all'||b.dataset.g===g);b.setAttribute('aria-pressed',b.dataset.s===s)});
+  cards.forEach(function(c){c.hidden=!((g==='all'||c.dataset.g===g)&&(!s||c.dataset.s===s))})}
+ tabs.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.g,null);history.replaceState(null,'',b.dataset.g==='all'?location.pathname:'#'+b.dataset.g)})});
+ subs.forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')==='true';apply(document.querySelector('.sx-ptabs [aria-selected=true]').dataset.g==='all'?b.dataset.g:document.querySelector('.sx-ptabs [aria-selected=true]').dataset.g,on?null:b.dataset.s)})});
+ var h=location.hash.slice(1);apply(h==='pads'||h==='liners'?h:'all',null)})();
+/* close other dropdowns */
+document.addEventListener('click',function(e){document.querySelectorAll('.sx-nav .sx-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
