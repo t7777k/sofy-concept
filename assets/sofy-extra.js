@@ -75,3 +75,12 @@ document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-re
  var h=location.hash.slice(1);apply(h==='pads'||h==='liners'?h:'all',null)})();
 /* close other dropdowns */
 document.addEventListener('click',function(e){document.querySelectorAll('.sx-nav .sx-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
+
+/* v7.1 finder: Pads | Pantyliners */
+(function(){var sg=document.querySelector('[data-finder2]');if(!sg)return;var D=JSON.parse(sg.getAttribute('data-finder2')),L=document.getElementById('fd-l'),pre=L.textContent.split(':')[0];
+ function show(g,v){var d=D.filter(function(x){return x.g===g&&x.v===v})[0];if(!d)return;
+  sg.querySelectorAll('.sx-fopts button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.g===g&&b.dataset.v===v)});
+  var im=document.getElementById('fd-img');im.src=d.img;im.alt=d.name;document.getElementById('fd-n').textContent=d.name;L.textContent=pre+': '+d.len;document.getElementById('fd-c').textContent=d.counts;document.getElementById('fd-link').href=d.href}
+ sg.querySelectorAll('.sx-ftype button').forEach(function(b){b.addEventListener('click',function(){var g=b.dataset.t;sg.querySelectorAll('.sx-ftype button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+  sg.querySelectorAll('.sx-fopts').forEach(function(o){o.hidden=o.dataset.grp!==g});show(g,D.filter(function(x){return x.g===g})[0].v)})});
+ sg.querySelectorAll('.sx-fopts button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.g,b.dataset.v)})})})();
