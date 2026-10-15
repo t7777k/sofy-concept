@@ -624,3 +624,4 @@ main>section:first-child:has(.sx-crumb){padding-top:var(--s3)!important}
 .mt-header.sx-header{margin-bottom:0!important}
 @media (min-width:768px){.sx-res .pk{padding:var(--s3)!important}.sx-res .pk img{width:100%!important;max-width:360px!important;max-height:none!important;height:auto!important}}
 h1.sx-pillhead{background:none!important;color:#45237A!important;padding:0!important;border-radius:0!important;box-shadow:none!important}
+@media (max-width:767px){.sx-ptabs{flex-wrap:wrap;gap:var(--s1)}.sx-ptabs button{padding:0 var(--s2);white-space:nowrap;min-height:40px;font-size:14px}}

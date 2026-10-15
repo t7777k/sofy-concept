@@ -72,7 +72,7 @@ document.querySelectorAll('.sx-swoosh').forEach(function(s){if(s.closest('.sx-re
   cards.forEach(function(c){c.hidden=!((g==='all'||c.dataset.g===g)&&(!s||c.dataset.s===s))})}
  tabs.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.g,null);history.replaceState(null,'',b.dataset.g==='all'?location.pathname:'#'+b.dataset.g)})});
  subs.forEach(function(b){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')==='true';apply(document.querySelector('.sx-ptabs [aria-selected=true]').dataset.g==='all'?b.dataset.g:document.querySelector('.sx-ptabs [aria-selected=true]').dataset.g,on?null:b.dataset.s)})});
- var h=location.hash.slice(1);apply(h==='pads'||h==='liners'?h:'all',null)})();
+ var h=location.hash.slice(1);apply(['pads','liners','mama'].indexOf(h)>-1?h:'all',null)})();
 /* close other dropdowns */
 document.addEventListener('click',function(e){document.querySelectorAll('.sx-nav .sx-dd[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open')})});
 
