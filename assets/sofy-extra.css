@@ -617,3 +617,10 @@ h1,h2,.mt-section_title,.sx-shop-title,.sx-page-h1,.sx-pcard h2,.sx-band-title{c
 .sx-shop2 .sx-cv-b{display:none}
 .sx-shop2{padding-bottom:calc(var(--s6) + 40px)}
 .sx-shop2+.sx-finder{margin-top:-40px!important;position:relative;z-index:1}
+/* v7.3 header→breadcrumb gap */
+.sx-crumb{margin-top:0!important}
+main>section:first-child:has(.sx-crumb){padding-top:var(--s3)!important}
+@media (min-width:768px){main>section:first-child:has(.sx-crumb){padding-top:var(--s4)!important}}
+.mt-header.sx-header{margin-bottom:0!important}
+@media (min-width:768px){.sx-res .pk{padding:var(--s3)!important}.sx-res .pk img{width:100%!important;max-width:360px!important;max-height:none!important;height:auto!important}}
+h1.sx-pillhead{background:none!important;color:#45237A!important;padding:0!important;border-radius:0!important;box-shadow:none!important}
