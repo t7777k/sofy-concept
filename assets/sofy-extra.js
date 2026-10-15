@@ -84,3 +84,19 @@ document.addEventListener('click',function(e){document.querySelectorAll('.sx-nav
  sg.querySelectorAll('.sx-ftype button').forEach(function(b){b.addEventListener('click',function(){var g=b.dataset.t;sg.querySelectorAll('.sx-ftype button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
   sg.querySelectorAll('.sx-fopts').forEach(function(o){o.hidden=o.dataset.grp!==g});show(g,D.filter(function(x){return x.g===g})[0].v)})});
  sg.querySelectorAll('.sx-fopts button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.g,b.dataset.v)})})})();
+/* v7.6 step-by-step finder */
+(function(){var w=document.querySelector('[data-finder3]');if(!w)return;var R={};JSON.parse(w.getAttribute('data-finder3')).forEach(function(x){R[x.k]=x});
+ var sec=w.closest('section'),steps=sec.querySelectorAll('.sx-steps li'),back=w.querySelector('.sx-fback'),hist=[];
+ function show(id,st,focus){w.querySelectorAll('.sx-fp').forEach(function(p){var on=p.dataset.p===id;p.hidden=!on;if(on){p.classList.remove('is-in');void p.offsetWidth;p.classList.add('is-in');if(focus){var h=p.querySelector('h3');h&&h.focus({preventScroll:true})}}});
+  steps.forEach(function(li){var n=+li.dataset.st;li.classList.toggle('is-on',n===st);li.classList.toggle('is-done',n<st);if(n===st)li.setAttribute('aria-current','step');else li.removeAttribute('aria-current')});
+  back.hidden=(id==='1')}
+ function result(k){var d=R[k];var p=w.querySelector('.sx-fres');var im=p.querySelector('img');im.src=d.img;im.alt=d.name;
+  p.querySelector('.sx-fr-n').textContent=d.name;p.querySelector('.sx-fr-l').textContent=d.len;p.querySelector('.sx-fr-c').textContent=d.counts;p.querySelector('.sx-fr-b').href=d.href}
+ var cur={id:'1',st:1};
+ function go(id,st){hist.push(cur);cur={id:id,st:st};show(id,st,true)}
+ w.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  if(b.dataset.go){go(b.dataset.go,2)}
+  else if(b.dataset.res){result(b.dataset.res);go('res',3)}
+  else if(b.classList.contains('sx-fback')){cur=hist.pop()||{id:'1',st:1};show(cur.id,cur.st,true)}
+  else if(b.classList.contains('sx-frestart')){hist=[];cur={id:'1',st:1};show('1',1,true)}});
+ show('1',1,false)})();
