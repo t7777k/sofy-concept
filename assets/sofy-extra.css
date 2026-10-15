@@ -572,3 +572,48 @@ h1,h2,.mt-section_title,.sx-shop-title,.sx-page-h1,.sx-pcard h2,.sx-band-title{c
 @media (max-width:767px){.sx-pdp-stage{padding:var(--s3) var(--s2)}.sx-pdp-stage .sx-pack{width:88%;aspect-ratio:1/1;padding:var(--s1)!important}}
 .sx-res .pk img{filter:none!important}
 @media (min-width:768px){.sx-pdp-stage{align-self:start!important;position:sticky;top:120px}.sx-pdp-stage .sx-pack{width:min(80%,420px);aspect-ratio:1/1}}
+/* ===== v7.2 top section: BJ structure, warm palette ===== */
+.sx-atf2{background:linear-gradient(180deg,#fff 0,#F6EFFB 30%,#F1E6F8 100%)!important;color:#45237A;padding:0!important}
+.sx-atf2 .sx-atf-media{background-color:#F1E6F8;overflow:hidden}
+.sx-atf2 .sx-atf-media::after{display:none}
+.sx-hw{position:absolute;left:0;width:100%;z-index:2;display:block;pointer-events:none}
+.sx-hw-t{top:-1px;height:24px;color:#fff}
+.sx-hw-b{bottom:-1px;height:28px;color:#F4ECFA}
+.sx-atf2 .sx-wingdiv{display:none}
+.sx-atf2 .sx-atf-c{position:static;padding:var(--s2) var(--s2) var(--s4);align-items:center}
+.sx-atf2 .sx-atf-txt{align-items:center;text-align:center;gap:var(--s2)}
+.sx-atf2 .sx-atf-h{color:#45237A;font-size:24px;line-height:32px;max-width:20ch}
+.sx-atf2 .sx-atf-cta{background:#8E3A8F;color:#fff;border:0;border-radius:999px;min-height:48px;padding:0 var(--s4);font-weight:700;font-size:16px;box-shadow:0 8px 20px rgba(142,58,143,.3)}
+.sx-atf2 .sx-atf-cta:hover{background:#6A3A9E;color:#fff}
+@media (min-width:768px){
+ .sx-hw-t{height:40px}.sx-hw-b{height:48px}
+ .sx-atf2 .sx-atf-media::after{display:block;background:linear-gradient(270deg,rgba(58,29,102,.55) 0,rgba(58,29,102,0) 45%)}
+ [dir=ltr] .sx-atf2 .sx-atf-media::after{background:linear-gradient(90deg,rgba(58,29,102,.55) 0,rgba(58,29,102,0) 45%)}
+ .sx-atf2{position:relative}
+ .sx-atf2 .sx-atf-c{position:absolute;top:0;bottom:0;inset-inline-start:0;width:42%;padding:0 64px;align-items:flex-start;justify-content:center;z-index:3}
+ .sx-atf2 .sx-atf-txt{align-items:flex-start;text-align:start}
+ .sx-atf2 .sx-atf-h{color:#fff;font-size:40px;line-height:48px;text-shadow:0 2px 16px rgba(30,10,60,.35)}}
+/* facts strip */
+.sx-f3band{background:#F1E6F8;padding:var(--s3) 0 var(--s5)}
+.sx-f3h{font-size:24px!important;line-height:32px!important;color:#45237A;margin:0 0 4px!important}
+.sx-f3p{color:#6B5A85;margin:0 0 var(--s3);font-size:15px}
+.sx-f3{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s1);max-width:760px}
+.sx-f3 li{display:flex;flex-direction:column;align-items:center;gap:var(--s1)}
+.sx-f3i{width:64px;height:64px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(255,255,255,.55),0 8px 20px rgba(106,58,158,.15)}
+.sx-f3i img{width:32px;height:32px}
+.sx-f3 b{font-size:14px;line-height:20px;color:#45237A}
+@media (min-width:768px){.sx-f3band{padding:var(--s4) 0 var(--s6)}.sx-f3h{font-size:32px!important;line-height:40px!important}.sx-f3i{width:80px;height:80px}.sx-f3i img{width:40px;height:40px}.sx-f3 b{font-size:17px}}
+/* shop band tinted, curved */
+.sx-shop2{position:relative;background:#FBF3E6;color:#F1E6F8;padding:var(--s7,56px) 0 var(--s7,56px)}
+.sx-shop2 .sx-cv-t{color:#F1E6F8}.sx-shop2 .sx-cv-b{color:#fff}
+.sx-shop2 .sx-shop-title{color:#45237A}
+.sx-shop2 .sx-cv{position:absolute;left:0;width:100%;height:40px}
+.sx-shop2 .sx-cv-t{top:-1px}.sx-shop2 .sx-cv-b{bottom:-1px}
+.sx-shop2 .sx-shop-tiles a{background:#fff;border-radius:20px;box-shadow:0 6px 18px rgba(106,58,158,.10)}
+/* EN pill in palette */
+.sx-lang,a.sx-lang,.mt-lang,.sx-hdr .sx-lang-b{background:#F1E6F8!important;color:#6A3A9E!important;border:1px solid #D9C4EE!important}
+.sx-langpill{display:inline-grid!important;place-items:center;min-width:36px;height:32px;padding:0 10px;border-radius:999px;background:#F1E6F8;color:#6A3A9E!important;border:1px solid #D9C4EE;font-weight:700;font-size:13px;line-height:1;text-decoration:none}
+.sx-langpill:hover{background:#6A3A9E;color:#fff!important}
+.sx-shop2 .sx-cv-b{display:none}
+.sx-shop2{padding-bottom:calc(var(--s6) + 40px)}
+.sx-shop2+.sx-finder{margin-top:-40px!important;position:relative;z-index:1}
